@@ -133,6 +133,7 @@ sub process_JCEC_files {
         push (@splice_type_array, $splice_type);
         push (@sample_name_array, $sample_name);
         my $unique_path;
+        print("Splice_type is $splice_type\n");
         if($splice_type eq "A3SS.MATS.JCEC.txt") {
             $unique_path = "A3SS_files";
         }
@@ -148,11 +149,12 @@ sub process_JCEC_files {
         elsif ($splice_type eq "SE.MATS.JCEC.txt") {
             $unique_path = "SE_files";
         }
-        open(INF, "<$file") or die "couldn't open input file";
-        open(OUT, ">$out_dir/$unique_path/1_rMATS_sig/1_original/$basename") or die "couldn't open output file";
-        open(OUT2, ">$out_dir/$unique_path/1_rMATS_sig/1_sig_all/$basename") or die "couldn't open output file";
-        open(OUT3, ">$out_dir/$unique_path/1_rMATS_sig/2_sig_pos_IncDiff/$basename") or die "couldn't open output file";
-        open(OUT4, ">$out_dir/$unique_path/1_rMATS_sig/3_sig_neg_IncDiff/$basename") or die "couldn't open output file";
+        
+        open(INF, "<$file") or die "couldn't open input $file";
+        open(OUT, ">$out_dir/$unique_path/1_rMATS_sig/1_original/$basename") or die "couldn't open output $out_dir/$unique_path/1_rMATS_sig/1_original/$basename";
+        open(OUT2, ">$out_dir/$unique_path/1_rMATS_sig/1_sig_all/$basename") or die "couldn't open output $out_dir/$unique_path/1_rMATS_sig/1_sig_all/$basename";
+        open(OUT3, ">$out_dir/$unique_path/1_rMATS_sig/2_sig_pos_IncDiff/$basename") or die "couldn't open output $out_dir/$unique_path/1_rMATS_sig/2_sig_pos_IncDiff/$basename";
+        open(OUT4, ">$out_dir/$unique_path/1_rMATS_sig/3_sig_neg_IncDiff/$basename") or die "couldn't open output $out_dir/$unique_path/1_rMATS_sig/3_sig_neg_IncDiff/$basename";
 
         while(my $line = <INF>) {
             chomp($line);
