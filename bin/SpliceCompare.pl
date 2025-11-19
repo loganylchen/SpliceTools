@@ -149,6 +149,10 @@ sub process_JCEC_files {
         elsif ($splice_type eq "SE.MATS.JCEC.txt") {
             $unique_path = "SE_files";
         }
+        else{
+            print("Not supported file: $file\n");
+            next
+        }
         
         open(INF, "<$file") or die "couldn't open input $file";
         open(OUT, ">$out_dir/$unique_path/1_rMATS_sig/1_original/$basename") or die "couldn't open output $out_dir/$unique_path/1_rMATS_sig/1_original/$basename";
